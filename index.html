@@ -2588,9 +2588,12 @@
         <span data-i18n="cookie-desc">Utilizamos cookies técnicas estrictamente necesarias para el funcionamiento del panel y la seguridad de tu sesión (Anti-CSRF). No usamos cookies de rastreo publicitario.</span> 
         <a href="#" data-i18n="cookie-link" class="underline hover:text-[#690991] dark:hover:text-[#c75ced] ml-1">Leer Política de Privacidad</a>.
     </div>
-    <div class="flex-shrink-0 w-full md:w-auto text-center">
-        <button id="btn-accept-cookies" data-i18n="cookie-btn" class="w-full md:w-auto bg-[#690991] hover:bg-[#4a0066] text-white px-8 py-2.5 rounded-full font-bold text-sm transition-colors shadow-lg shadow-[#690991]/30">
-            Aceptar y Continuar
+    <div class="flex-shrink-0 w-full md:w-auto flex flex-row gap-3 justify-center">
+        <button id="btn-reject-cookies" data-i18n="cookie-btn-rej" class="px-5 py-2.5 rounded-full font-bold text-sm text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+            Rechazar todo
+        </button>
+        <button id="btn-accept-cookies" data-i18n="cookie-btn" class="bg-[#690991] hover:bg-[#4a0066] text-white px-6 py-2.5 rounded-full font-bold text-sm transition-colors shadow-lg shadow-[#690991]/30">
+            Aceptar todo
         </button>
     </div>
 </div>
@@ -3635,19 +3638,25 @@ document.addEventListener("DOMContentLoaded", () => {
 // =========================================================================
 const cookieBanner = document.getElementById('cookie-banner');
 const acceptCookiesBtn = document.getElementById('btn-accept-cookies');
+const rejectCookiesBtn = document.getElementById('btn-reject-cookies');
 
-// Solo lo ejecutamos si el banner existe en la página actual y no ha aceptado
-if (cookieBanner && !localStorage.getItem('qxao_cookies_accepted')) {
+// Solo lo ejecutamos si el banner existe y el usuario no ha interactuado
+if (cookieBanner && !localStorage.getItem('qxao_cookies_status')) {
     setTimeout(() => {
         cookieBanner.classList.remove('translate-y-full');
     }, 40000); // Aparece a los 40 segundos exactos
 }
 
+function hideCookieBanner(status) {
+    localStorage.setItem('qxao_cookies_status', status);
+    cookieBanner.classList.add('translate-y-full'); 
+}
+
 if (acceptCookiesBtn) {
-    acceptCookiesBtn.addEventListener('click', () => {
-        localStorage.setItem('qxao_cookies_accepted', 'true');
-        cookieBanner.classList.add('translate-y-full'); 
-    });
+    acceptCookiesBtn.addEventListener('click', () => hideCookieBanner('accepted'));
+}
+if (rejectCookiesBtn) {
+    rejectCookiesBtn.addEventListener('click', () => hideCookieBanner('rejected'));
 }
 </script>
      </body>
