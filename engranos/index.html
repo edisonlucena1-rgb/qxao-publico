@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal de Conexión | Qxao</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#690991',
+                        darkBg: '#0f172a',
+                        darkCard: '#1e293b',
+                        qxaoGlow: '#c583f0'
+                    },
+                    fontFamily: {
+                        display: ['Montserrat', 'sans-serif'],
+                        body: ['Open Sans', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Open Sans', sans-serif; background-color: #0f172a; color: #ffffff; }
+        h1, h2, h3 { font-family: 'Montserrat', sans-serif; }
+        
+        .glow-card {
+            box-shadow: 0 0 40px rgba(105, 9, 145, 0.15);
+            border: 1px solid rgba(197, 131, 240, 0.2);
+            background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
+        }
+        
+        .loader {
+            border: 3px solid rgba(197, 131, 240, 0.15);
+            border-top: 3px solid #c583f0;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: auto;
+        }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+        /* Fondo de Cuadricula Animada Oficial Qxao */
+        @keyframes mover-patron {
+            0% { background-position: 0 0; }
+            100% { background-position: -420px -300px; }
+        }
+        .bg-grid-light {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='84' height='60' viewBox='0 -30.22 42.44 30.22'%3E%3Cpath fill='%23ffffff' fill-opacity='0.02' d='M18.33-5.39c1.6-0.64,2.98-1.55,4.16-2.72c1.18-1.17,2.1-2.53,2.76-4.09c0.66-1.56,0.99-3.26,0.99-5.12c0-1.85-0.33-3.56-0.99-5.12c-0.66-1.56-1.58-2.92-2.76-4.09c-1.18-1.17-2.57-2.08-4.16-2.72c-1.6-0.64-3.33-0.97-5.21-0.97c-1.88,0-3.61,0.32-5.21,0.97c-1.6,0.65-2.98,1.55-4.16,2.72c-1.18,1.17-2.1,2.54-2.76,4.09C0.33-20.88,0-19.17,0-17.32c0,1.85,0.33,3.56,0.99,5.12c0.66,1.56,1.58,2.92,2.76,4.09s2.57,2.08,4.16,2.72c1.6,0.65,3.33,0.97,5.21,0.97C14.99-4.42,16.73-4.74,18.33-5.39z M8.22-6.05C6.71-6.67,5.4-7.53,4.27-8.64s-1.99-2.4-2.61-3.88c-0.62-1.47-0.93-3.08-0.93-4.81s0.31-3.33,0.93-4.81C2.28-23.6,3.15-24.89,4.27-26c1.12-1.11,2.44-1.97,3.95-2.59c1.51-0.62,3.14-0.93,4.9-0.93c1.75,0,3.39,0.31,4.9,0.93c1.51,0.62,2.83,1.49,3.95,2.59c1.12,1.11,1.99,2.4,2.61,3.87c0.62,1.47,0.93,3.08,0.93,4.81s-0.31,3.33-0.93,4.81c-0.62,1.48-1.49,2.77-2.61,3.88s-2.44,1.97-3.95,2.59c-1.51,0.62-3.14,0.93-4.9,0.93C11.37-5.12,9.73-5.43,8.22-6.05z M27.33-2.78l-0.51-0.51c-1.44,1.73-3.2,2.59-5.3,2.59c-0.76,0-1.53-0.15-2.32-0.46c-0.79-0.3-1.6-0.77-2.41-1.39c-0.81-0.62-1.64-1.38-2.46-2.28l-0.95,0.18c0.78,0.8,1.52,1.5,2.21,2.08c0.69,0.59,1.38,1.07,2.05,1.44c0.67,0.38,1.32,0.66,1.95,0.84C20.22-0.09,20.87,0,21.52,0C23.89,0,25.82-0.93,27.33-2.78z M27.2-2.63l7.24-9.35h-0.18l7.24,9.35h0.95l-7.82-9.98l-0.04,0.44l7.31-9.36h-0.88l-6.83,8.77h0.29l-6.83-8.77h-0.91l7.23,9.21L34-12.57l-7.71,9.94H27.2z'/%3E%3C/svg%3E");
+            background-size: 84px 60px;
+            animation: mover-patron 100s linear infinite;
+        }
+    </style>
+</head>
+<body class="bg-grid-light min-h-screen flex flex-col items-center justify-center p-4 relative overflow-hidden">
+    
+    <!-- Resplandor de fondo -->
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/20 rounded-full blur-[120px] pointer-events-none z-0"></div>
+
+    <div class="glow-card rounded-3xl w-full max-w-lg p-8 md:p-10 relative z-10 flex flex-col items-center">
+        
+        <!-- Logo Exacto de Qxao -->
+        <div class="w-44 mb-8">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1382.99 506.24" class="w-full h-auto">
+                <g id="OBJECTS">
+                    <path class="fill-[#690991]" d="M853.72,356.62a22.9,22.9,0,0,1-9.7-2.1,31.2,31.2,0,0,1-9.24-7l-.12-.14c.31-.11.63-.21.94-.33a86.24,86.24,0,0,0,28.64-17.77,84.05,84.05,0,0,0,0-122,86.24,86.24,0,0,0-28.64-17.77,107.51,107.51,0,0,0-72.58,0,86.3,86.3,0,0,0-28.87,17.88,82.18,82.18,0,0,0-19,27,88.12,88.12,0,0,0,0,67.79,82,82,0,0,0,19,27A86.17,86.17,0,0,0,763,347a94.63,94.63,0,0,0,18.45,4.9q8.41,8.61,15.56,15a105.35,105.35,0,0,0,18.23,13.32,70.66,70.66,0,0,0,17.89,7.13,82.82,82.82,0,0,0,19.63,2.22q28.76,0,45.82-20.57l-20.1-23.84Q867.28,356.62,853.72,356.62Zm-95.26-69.19a56.24,56.24,0,0,1,0-38.46,45,45,0,0,1,9.35-14.72,40.16,40.16,0,0,1,14-9.47,48,48,0,0,1,34.83,0,40.21,40.21,0,0,1,14,9.47A44.82,44.82,0,0,1,840,249a56.24,56.24,0,0,1,0,38.46,44.54,44.54,0,0,1-9.35,14.84,40.21,40.21,0,0,1-14,9.47,48,48,0,0,1-34.83,0,40.16,40.16,0,0,1-14,9.47A44.7,44.7,0,0,1,758.46,287.43Z"/>
+                    <polygon class="fill-[#690991]" points="1032.55 223.38 985.56 223.38 962.23 255.42 939.74 223.38 889.72 223.38 936.57 286.7 888.31 350.08 936.47 350.08 960.7 316.91 983.46 350.08 1034.18 350.08 985.81 285.18 1032.55 223.38"/>
+                    <path class="fill-white" d="M1140.2,235.41q-17-14.13-47.81-14.14a120.84,120.84,0,0,0-30,3.86A85.87,85.87,0,0,0,1036.52,236l15,30.15a49.33,49.33,0,0,1,15.9-8.06,61.58,61.58,0,0,1,18.46-2.92q14,0,20.46,5.72,5.84,5.22,6.35,14.38h-25.17q-19.63,0-32,4.56t-18.35,13.09a34.44,34.44,0,0,0-6,20.22,36.94,36.94,0,0,0,5.5,19.87,37.68,37.68,0,0,0,16,14q10.51,5.13,25.71,5.14,16.61,0,26.77-6.66a30.92,30.92,0,0,0,10.64-11.89v16.45h41.37V279.71Q1157.14,249.56,1140.2,235.41ZM1104,320.51a25,25,0,0,1-13.21,3.62q-7.71,0-12.15-3.51a11.28,11.28,0,0,1-4.44-9.35,11.41,11.41,0,0,1,4.32-9.35q4.32-3.51,15.08-3.51h19.17v11A21.14,21.14,0,0,1,1104,320.51Z"/>
+                    <path class="fill-white" d="M1301.84,252.6a62.6,62.6,0,0,0-25.36-23q-16.26-8.3-37-8.3t-36.94,8.3a63.57,63.57,0,0,0-25.36,23q-9.24,14.72-9.24,33.89t9.24,34a64.16,64.16,0,0,0,25.36,23.25q16.13,8.43,36.94,8.42t37-8.42a63.17,63.17,0,0,0,25.36-23.25q9.12-14.85,9.12-34T1301.84,252.6ZM1262.57,303a24.64,24.64,0,0,1-9.47,10.41,26.51,26.51,0,0,1-13.67,3.5,26.12,26.12,0,0,1-13.45-3.5A25.39,25.39,0,0,1,1216.4,303a34.92,34.92,0,0,1-3.62-16.48q0-9.58,3.62-16.24a25.6,25.6,0,0,1,9.58-10.17,26,26,0,0,1,13.45-3.51,26.42,26.42,0,0,1,13.67,3.51,24.82,24.82,0,0,1,9.47,10.17q3.51,6.66,3.51,16.24A35.92,35.92,0,0,1,1262.57,303Z"/>
+                    <path class="fill-[#690991]" d="M590.54,286,693.92,150a5.48,5.48,0,0,0-4.36-8.8H610a5.47,5.47,0,0,0-4.39,2.21l-59.66,80.21a5.49,5.49,0,0,1-8.84,0s-26.53-35.94-49.29-67.71c-6.49-9.05-16.39-12-27.42-13.48-21.43-2.86-53.74,1.27-53.86,1.29-193.59,24.49-296.23,135.12-317,158a5.49,5.49,0,0,0,.49,7.83C218.49,421.41,365.63,440.9,435.22,444c0,0,33.43.46,39.19-5.88.49-.53,1-1.06,1.43-1.64,6.59-8.78,58.92-79.17,58.92-79.17a5.48,5.48,0,0,1,8.86.08l60.27,84.3a5.48,5.48,0,0,0,4.46,2.29H685a10,10,0,0,0,8-16.07L590.53,292.59A5.49,5.49,0,0,1,590.54,286ZM425.1,378.06a5.32,5.32,0,0,1-6.22,1.72l0,0a84.4,84.4,0,0,1-29.27-19.37,89.45,89.45,0,0,1-19.38-30.11,108.59,108.59,0,0,1,0-76.45,90.08,90.08,0,0,1,19.38-29.91,83.9,83.9,0,0,1,25.07-17.56c1-.47,2.08-.93,3.15-1.36s2.07-.8,3.12-1.16a5.48,5.48,0,0,1,6.23,1.87l61.67,82.23a5.46,5.46,0,0,1,0,6.61Z"/>
+                </g>
+            </svg>
+        </div>
+
+        <!-- Encabezado y Estado -->
+        <div class="w-full border-b border-gray-700/50 pb-6 mb-6 flex justify-between items-center">
+            <div>
+                <h2 class="font-display font-bold text-lg md:text-xl tracking-wide text-white">Portal de Conexión</h2>
+                <p class="text-xs md:text-sm text-gray-400">Despliegue de Agente IA</p>
+            </div>
+            <span id="statusBadge" class="bg-red-900/40 text-red-400 border border-red-800/50 px-3 py-1 rounded-md text-[10px] md:text-xs font-bold tracking-widest uppercase transition-colors duration-300">
+                Desconectado
+            </span>
+        </div>
+
+        <!-- Área Central del QR -->
+        <div class="bg-[#0b0f19] border border-gray-700/50 rounded-2xl w-full p-8 flex flex-col items-center justify-center min-h-[280px] shadow-inner mb-6 relative overflow-hidden">
+            
+            <h3 id="instructionText" class="text-qxaoGlow font-semibold text-center mb-6 text-sm md:text-base">
+                Sincroniza tu línea de atención comercial con la infraestructura Qxao
+            </h3>
+
+            <!-- Loader (Oculto por defecto) -->
+            <div id="loading" class="hidden flex-col items-center">
+                <div class="loader mb-4"></div>
+                <p class="text-sm text-gray-400 font-mono tracking-wide animate-pulse">Solicitando token cifrado desde n8n...</p>
+            </div>
+
+            <!-- Contenedor de Imagen QR -->
+            <div id="qrContainer" class="bg-white p-3.5 rounded-xl hidden shadow-[0_0_20px_rgba(255,255,255,0.1)]">
+                <img id="imagen-qr" src="" alt="Código QR Qxao" class="w-52 h-52 object-contain">
+            </div>
+
+        </div>
+
+        <!-- Botón de Acción -->
+        <button id="getQrBtn" onclick="generarQR()" class="w-full bg-primary hover:bg-[#4a0066] text-white font-bold py-4 px-8 rounded-full transition-all duration-300 shadow-[0_0_20px_rgba(105,9,145,0.4)] hover:shadow-[0_0_30px_rgba(197,131,240,0.6)] hover:-translate-y-1">
+            Generar Código QR
+        </button>
+
+        <p class="text-[10px] text-gray-500 mt-6 text-center tracking-wide uppercase">
+            Protegido por Arquitectura Anti-Alucinaciones Qxao
+        </p>
+    </div>
+
+    <!-- EL SCRIPT MÁGICO COMPLETAMENTE INTEGRADO -->
+    <script>
+        function generarQR() {
+            // URL exacta de tu webhook en n8n
+            const webhookUrl = "https://agentes-qxao-n8n.jhf0s9.easypanel.host/webhook/obtener-qr-engranos";
+
+            // Elementos visuales
+            const btn = document.getElementById('getQrBtn');
+            const loading = document.getElementById('loading');
+            const qrContainer = document.getElementById('qrContainer');
+            const instructionText = document.getElementById('instructionText');
+            const statusBadge = document.getElementById('statusBadge');
+            const img = document.getElementById("imagen-qr");
+
+            // Animación de interfaz (Cargando)
+            btn.classList.add('hidden');
+            qrContainer.classList.add('hidden');
+            instructionText.classList.add('hidden');
+            loading.classList.remove('hidden');
+            loading.classList.add('flex');
+
+            console.log("Solicitando QR...");
+
+            // Llamamos a n8n
+            fetch(webhookUrl)
+                .then(response => response.json()) // Leemos la respuesta JSON
+                .then(data => {
+                    // Si n8n responde con éxito, dibujamos la imagen
+                    if(data.status === "success") {
+                        // Inyectamos el código Base64 directamente al src de la imagen
+                        img.src = data.qr_base64;
+                        
+                        // Actualizamos la interfaz
+                        loading.classList.add('hidden');
+                        loading.classList.remove('flex');
+                        qrContainer.classList.remove('hidden');
+                        
+                        // Cambiamos el texto del botón y lo mostramos de nuevo
+                        btn.textContent = 'Actualizar Código QR';
+                        btn.classList.remove('hidden');
+
+                        // Opcional: Cambiar estado a pendiente de escaneo
+                        statusBadge.textContent = 'Escaneo Pendiente';
+                        statusBadge.className = 'bg-yellow-900/40 text-yellow-400 border border-yellow-800/50 px-3 py-1 rounded-md text-[10px] md:text-xs font-bold tracking-widest uppercase transition-colors duration-300';
+                    } else {
+                        throw new Error("El JSON no trajo el status success");
+                    }
+                })
+                .catch(error => {
+                    alert("Hubo un error al generar el QR. Intente de nuevo.");
+                    console.error(error);
+                    
+                    // Restauramos la interfaz
+                    loading.classList.add('hidden');
+                    loading.classList.remove('flex');
+                    instructionText.classList.remove('hidden');
+                    btn.classList.remove('hidden');
+                });
+        }
+    </script>
+</body>
+</html>
