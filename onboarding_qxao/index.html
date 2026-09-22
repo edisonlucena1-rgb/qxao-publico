@@ -260,6 +260,14 @@
                 <textarea name="fi-text-garantias" id="inp-garantias" data-i18n-ph="ph-garantias" rows="2" placeholder="Políticas claras sobre reclamos, cambios y reembolsos." class="save-state"></textarea>
                 <label data-i18n="onb-pol-doc" class="font-semibold text-sm text-[#690991] mt-2 block">Subir Documentos de Políticas (Opcional)</label>
                 <input type="file" name="fi-file-politicas[]" multiple class="w-full text-sm text-slate-600 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-bold file:bg-purple-50 file:text-[#690991] hover:file:bg-purple-100 transition mb-2">
+
+                <hr class="my-4 border-slate-100">
+                <label data-i18n="onb-rag-pol" class="font-semibold text-sm text-[#690991] mt-4 block">Base de Conocimiento y Políticas de Empresa (RAG)</label>
+                <p data-i18n="onb-rag-desc1" class="text-xs text-slate-500 mb-1">Escriba ejemplos de políticas o reglas internas para la IA:</p>
+                <textarea name="fi-text-rag_ejemplos" id="inp-rag_ejemplos" data-i18n-ph="ph-rag_ejemplos" rows="3" class="save-state mb-2" placeholder="Ej: Política de envíos: Todo envío se hace a las 2 PM..."></textarea>
+                
+                <p data-i18n="onb-rag-desc2" class="text-xs text-slate-500 mb-1">¿Tienes documentos con tus reglas? Súbelos para que la IA los aprenda:</p>
+                <input type="file" name="fi-file-rag[]" multiple class="w-full text-sm text-slate-600 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-bold file:bg-purple-50 file:text-[#690991] hover:file:bg-purple-100 transition mb-4">
             </div>
 
             <!-- PASO 3 -->
@@ -345,8 +353,9 @@
                     </div>
                 </div>
                 
-                <label data-i18n="onb-safe" class="font-semibold text-sm text-[#690991]">Palabras Clave de Auxilio</label>
-                <input type="text" name="fi-text-safeWords" id="inp-safeWords" data-i18n-ph="ph-safe" placeholder="Ej: 'Asesor', 'Ayuda', 'Humano'" class="save-state mb-4">
+                <label data-i18n="onb-safe" class="font-semibold text-sm text-[#690991]">Palabras de escalamiento a humano</label>
+                <p data-i18n="onb-safe-d" class="text-xs text-slate-500 mb-1">(Ej: 'acceso', 'humano', 'ayuda', 'atención')</p>
+                <input type="text" name="fi-text-safeWords" id="inp-safeWords" data-i18n-ph="ph-safe" placeholder="Ej: hablar con humano" class="save-state mb-4">
                 
                 <hr class="my-6 border-slate-100">
                 
@@ -477,6 +486,10 @@
                 "onb-pol": "Garantías y Devoluciones",
                 "ph-garantias": "Políticas claras sobre reclamos, cambios y reembolsos.",
                 "onb-pol-doc": "Subir Documentos de Políticas (Opcional)",
+                "onb-rag-pol": "Base de Conocimiento y Políticas de Empresa (RAG)",
+                "onb-rag-desc1": "Escriba ejemplos de políticas o reglas internas para la IA:",
+                "ph-rag_ejemplos": "Ej: Política de envíos: Todo envío se hace a las 2 PM...",
+                "onb-rag-desc2": "¿Tienes documentos con tus reglas? Súbelos para que la IA los aprenda:",
                 
                 /* PASO 3 */
                 "onb-s3-title": "3. Estrategia de Ventas, Pagos y Facturación",
@@ -517,8 +530,9 @@
                 "onb-escal": "Criterios de Escalamiento a Humano",
                 "onb-escal-d": "Situaciones exactas para transferir el chat a un operador.",
                 "ph-escalamiento": "Ej. Cuando hay un reclamo o pedido mayorista.",
-                "onb-safe": "Palabras Clave de Auxilio",
-                "ph-safe": "Ej: 'Asesor', 'Ayuda', 'Humano'",
+                "onb-safe": "Palabras de escalamiento a humano",
+                "onb-safe-d": "(Ej: 'acceso', 'humano', 'ayuda', 'atención')",
+                "ph-safe": "Ej: hablar con humano",
                 "onb-tools": "Herramientas a Integrar (CRM, Sheets, ERP)",
                 "ph-integraciones": "Ej. Cada pedido a Google Sheets.",
                 "onb-score": "Calificación de Leads (Lead Scoring)",
@@ -531,7 +545,7 @@
                 "onb-s5-title": "5. Acuerdos y Firma Legal",
                 "onb-captacion": "¿Por qué canal conoció a Qxao o tuvo algún referido?",
                 "ph-captacion": "Ej. Instagram, Recomendación de Empresa X",
-                "onb-nda": "<strong>TÉRMINOS DE SERVICIO Y CONFIDENCIALIDAD (NDA)</strong><br><br>1. <strong>Confidencialidad:</strong> Qxao se compromete a mantener en estricta confidencialidad toda la información.<br>2. <strong>Uso de Datos:</strong> Única y exclusivamente para el entrenamiento del Agente IA.<br>3. <strong>Propiedad:</strong> El cliente declara poseer los derechos sobre la información suministrada.<br>4. <strong>Alcance:</strong> Este documento funciona como el 'Brief Arquitectónico' base.",
+                "onb-nda": "<strong>TÉRMINOS DE SERVICIO Y CONFIDENCIALIDAD (NDA)</strong><br><br>1. <strong>Confidentiality:</strong> Qxao se compromete a mantener en estricta confidencialidad toda la información.<br>2. <strong>Uso de Datos:</strong> Única y exclusivamente para el entrenamiento del Agente IA.<br>3. <strong>Propiedad:</strong> El cliente declara poseer los derechos sobre la información suministrada.<br>4. <strong>Alcance:</strong> Este documento funciona como el 'Brief Arquitectónico' base.",
                 "onb-terms": "He leído y acepto los Términos de Servicio y Acuerdos de Confidencialidad (NDA).*",
                 "onb-sign-l": "Firma Electrónica del Responsable *",
                 "onb-sign-d": "Escriba su nombre completo para estampar su firma digital y enviar la solicitud.",
@@ -609,9 +623,15 @@
                 "onb-cat": "Upload Catalogs or Price Lists (PDF/Excel)",
                 "onb-cat-d1": "Must include clear units of measure (Ex. per Kg, Unit, Grams, Liters).",
                 "onb-cat-d2": "Click to upload or drag files here",
-                "onb-pol": "Guarantees & Returns",
-                "ph-garantias": "Clear policies on claims, exchanges, and refunds.",
+                "onb-pol": "Company Policies or Guarantees",
+                "ph-garantias": "Ex. We offer a 30-day warranty for factory defects.",
+                "onb-pol-exp": "Explain your policy in detail:",
+                "ph-pol-exp": "Ex: If the client asks for a warranty, the bot must request a photo...",
                 "onb-pol-doc": "Upload Policy Documents (Optional)",
+                "onb-rag-pol": "Knowledge Base & Company Policies (RAG)",
+                "onb-rag-desc1": "Write examples of policies or internal rules for the AI:",
+                "ph-rag_ejemplos": "Ex: Shipping policy: All shipments are made at 2 PM...",
+                "onb-rag-desc2": "Do you have documents with your rules? Upload them for the AI to learn:",
                 
                 /* STEP 3 */
                 "onb-s3-title": "3. Sales Strategy, Payments & Billing",
@@ -652,9 +672,10 @@
                 "onb-escal": "Human Escalation Criteria",
                 "onb-escal-d": "Exact situations to transfer the chat.",
                 "ph-escalamiento": "Ex. When there is a complaint or wholesale order.",
-                "onb-safe": "Safe / Help Keywords",
-                "ph-safe": "Ex: 'Advisor', 'Help', 'Human'",
-                "onb-tools": "Tools to Integrate (CRM, Sheets, ERP)",
+                "onb-safe": "Human Escalation Keywords",
+                "onb-safe-d": "(Ex: 'access', 'human', 'help', 'attention')",
+                "ph-safe": "Ex: talk to human",
+                "onb-tools": "Tools to Integrate (CRMs, Sheets, ERP)",
                 "ph-integraciones": "Ex. Every order to Google Sheets.",
                 "onb-score": "Lead Scoring",
                 "onb-score-d": "Conditions/Score to be considered a lead (Ex. 70 or less).",
