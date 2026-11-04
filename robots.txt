@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /login/
+Disallow: /onboarding_qxao/
+Disallow: /engranos/
+Disallow: /jlburger/
+
+Sitemap: https://www.qxao.dpdns.org/sitemap.xml
