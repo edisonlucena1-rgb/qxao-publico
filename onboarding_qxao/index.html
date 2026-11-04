@@ -391,13 +391,16 @@
                     4. <strong>Alcance:</strong> Este documento funciona como el 'Brief Arquitectónico' base.
                 </div>
                 <label class="flex items-center gap-2 mb-6 cursor-pointer">
-                    <input type="checkbox" id="inp-tos" class="w-4 h-4 text-[#690991] rounded focus:ring-[#690991]">
+                    <input type="checkbox" id="inp-tos" name="fi-check-tos" value="aceptado" class="w-4 h-4 text-[#690991] rounded focus:ring-[#690991]">
                     <span data-i18n="onb-terms" class="text-sm font-semibold text-slate-700">He leído y acepto los Términos de Servicio y Acuerdos de Confidencialidad (NDA).*</span>
+                    <span class="block text-xs text-slate-500 w-full">(<a href="/legal/terminos/" target="_blank" rel="noopener" class="underline text-[#690991]">Términos</a>, <a href="/legal/privacidad/" target="_blank" rel="noopener" class="underline text-[#690991]">Privacidad</a>, <a href="/legal/dpa/" target="_blank" rel="noopener" class="underline text-[#690991]">DPA</a>)</span>
                 </label>
                 <div class="bg-slate-50 p-6 rounded-lg border border-slate-200">
                     <label data-i18n="onb-sign-l" class="font-semibold text-sm block mb-1 text-[#690991]">Firma Electrónica del Responsable *</label>
                     <p data-i18n="onb-sign-d" class="text-xs text-slate-500 mb-3">Escriba su nombre completo para estampar su firma digital y enviar la solicitud.</p>
                     <input type="text" name="fi-text-firmaLegal" id="inp-firmaTexto" data-i18n-ph="ph-firma" placeholder="Ej. Juan Pérez" class="save-state bg-white">
+                    <input type="hidden" name="fi-text-tosVersion" value="Documentos legales - Septiembre 2026">
+                    <input type="hidden" name="fi-text-tosFecha" id="inp-tosFecha" value="">
                 </div>
             </div>
 
@@ -866,6 +869,7 @@
             submitBtn.classList.add("opacity-75");
             status.classList.add("hidden");
 
+            document.getElementById("inp-tosFecha").value = new Date().toISOString();
             const formData = new FormData(e.target);
             
             try {
