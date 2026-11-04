@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Política de Privacidad | Qxao</title>
+<meta name="robots" content="index, follow">
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root { --bg:#ffffff; --fg:#1f2937; --muted:#6b7280; --accent:#690991; --card:#f9fafb; --line:#e5e7eb; }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) { --bg:#0f172a; --fg:#e5e7eb; --muted:#9ca3af; --accent:#c75ced; --card:#1e293b; --line:#334155; }
+  }
+  :root[data-theme="dark"] { --bg:#0f172a; --fg:#e5e7eb; --muted:#9ca3af; --accent:#c75ced; --card:#1e293b; --line:#334155; }
+  body { background:var(--bg); color:var(--fg); font-family:'Open Sans', system-ui, sans-serif; margin:0; line-height:1.7; }
+  header { border-bottom:1px solid var(--line); padding:16px; }
+  header .wrap { max-width:820px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap; }
+  header a { color:var(--accent); text-decoration:none; font-weight:600; font-family:Montserrat, sans-serif; }
+  main { max-width:820px; margin:0 auto; padding:32px 16px 64px; }
+  h1 { font-family:Montserrat, sans-serif; color:var(--accent); font-size:clamp(1.6rem,4vw,2.2rem); margin:0 0 8px; }
+  h2 { font-family:Montserrat, sans-serif; font-size:1.15rem; margin:32px 0 8px; color:var(--fg); }
+  p { margin:0 0 12px; }
+  .meta { color:var(--muted); font-size:.9rem; margin-bottom:24px; }
+  .notice { background:var(--card); border-left:4px solid var(--accent); padding:12px 16px; border-radius:8px; font-size:.92rem; margin:20px 0 28px; }
+  nav.docs { margin-top:40px; padding-top:20px; border-top:1px solid var(--line); font-size:.9rem; }
+  nav.docs a { color:var(--accent); margin-right:14px; display:inline-block; margin-bottom:8px; }
+  img, table { max-width:100%; }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <a href="/">&larr; Volver a Qxao</a>
+    <span style="color:var(--muted);font-size:.85rem">Documentos legales</span>
+  </div>
+</header>
+<main>
+<h1>Política de Privacidad</h1>
+<div class="meta">Última actualización: Septiembre de 2026</div>
+<div class="notice">Al continuar usando los servicios o el sitio de Qxao, usted declara haber leído y aceptado el contenido de este documento.</div>
+<p>En Qxao valoramos la privacidad de nuestros Clientes corporativos y la de sus respectivos usuarios finales. Esta política describe cómo recopilamos, almacenamos y procesamos la información, alineados con el Artículo 48 de la Constitución de la República Bolivariana de Venezuela y en cumplimiento con los estándares internacionales de protección de datos (GDPR/CCPA).</p>
+<h2>1. Información que Recopilamos</h2>
+<p><strong>Datos Corporativos (B2B):</strong> Nombre de la empresa, datos de contacto del responsable, correos electrónicos corporativos, credenciales encriptadas y datos de facturación.</p>
+<p><strong>Base de Conocimiento Operativa:</strong> Documentos provistos por el Cliente (PDFs, hojas de cálculo, manuales, políticas comerciales) necesarios para el entrenamiento algorítmico y funcionamiento del sistema Retrieval-Augmented Generation (RAG).</p>
+<p><strong>Datos de Usuarios Finales (Transaccionales):</strong> Historiales de chat, transcripciones de notas de voz, intenciones de compra (Lead Scoring) y metadata de las interacciones procesadas a través de los canales del Cliente.</p>
+<h2>2. Finalidad del Uso de la Información</h2>
+<p>Los datos recopilados se utilizan estrictamente para:</p>
+<p>Prestar, mantener y mejorar el servicio de automatización y Agentes IA.</p>
+<p>Entrenar y estructurar la base de datos vectorial exclusiva de cada Cliente.</p>
+<p>Garantizar la seguridad de la infraestructura y autenticar el acceso a los paneles de control.</p>
+<p>Realizar diagnósticos técnicos y auditorías de rendimiento a través de archivos de registro (Logs).</p>
+<h2>3. Privacidad Absoluta frente a Modelos de IA (Zero Data Retention)</h2>
+<p>Qxao garantiza que los datos corporativos, manuales y las conversaciones de los usuarios finales de sus Clientes NO son utilizados para entrenar modelos de Inteligencia Artificial públicos (fundacionales). Las conexiones con proveedores de Modelos de Lenguaje (LLMs) se realizan a través de APIs de grado empresarial (Enterprise APIs) que incluyen acuerdos de cero retención de datos (Zero Data Retention) para entrenamiento de terceros.</p>
+<h2>4. Intercambio de Información con Terceros</h2>
+<p>Qxao no vende, alquila ni comercializa datos personales o corporativos. La información solo se comparte mediante transmisiones seguras con Sub-procesadores tecnológicos estrictamente necesarios para la operatividad del servicio:</p>
+<p>Proveedores de Infraestructura Cloud y Bases de Datos.</p>
+<p>Proveedores de Modelos de IA y Clonación de Voz.</p>
+<p>Proveedores de APIs de mensajería (WhatsApp, Meta).</p>
+<h2>5. Derechos ARCO (Acceso, Rectificación, Cancelación y Oposición)</h2>
+<p>Nuestros Clientes conservan el derecho absoluto sobre su información. En cualquier momento pueden solicitar el acceso, rectificación, exportación o eliminación permanente de sus bases de datos, historiales de chat y configuraciones de nuestros servidores. Toda solicitud debe canalizarse formalmente a través del correo soporte o cuenta asignada (hola@qxao.com).</p>
+<h2>6. Aclaratoria sobre los Usuarios Finales (Rol de Encargado)</h2>
+<p>Es importante destacar que Qxao actúa exclusivamente como Encargado del Tratamiento (Data Processor) respecto a los datos de los usuarios o consumidores finales. Nuestro Cliente corporativo actúa como el Responsable del Tratamiento (Data Controller). Si un usuario final desea ejercer sus derechos ARCO sobre las conversaciones generadas a través de los canales de nuestro Cliente, deberá dirigir su solicitud directamente a la empresa Cliente. Qxao proveerá las herramientas técnicas necesarias para que el Cliente pueda cumplir con dichas solicitudes.</p>
+<h2>7. Seguridad de la Información</h2>
+<p>Implementamos medidas técnicas y organizativas de grado empresarial para proteger su información contra acceso no autorizado, alteración, divulgación o destrucción. Esto incluye, pero no se limita a:</p>
+<p>Cifrado de credenciales mediante algoritmos de hash irreversibles (Bcrypt).</p>
+<p>Despliegues en arquitecturas de contenedores aislados.</p>
+<p>Conexiones cifradas y autenticación de endpoints mediante tokens (JWT).</p>
+<p>A pesar de nuestros estrictos protocolos, ningún método de transmisión por internet o almacenamiento electrónico es 100% impenetrable, por lo que el Cliente asume el riesgo inherente a las comunicaciones digitales.</p>
+<h2>8. Retención de los Datos</h2>
+<p>Qxao retendrá los Datos Corporativos y la Base de Conocimiento Operativa únicamente mientras la cuenta del Cliente se mantenga activa y la suscripción esté vigente. Al cancelarse el servicio, procederemos a la eliminación de las bases de datos vectoriales, manuales y configuraciones en un plazo no mayor a 30 días, conservando exclusivamente la información de facturación necesaria para el cumplimiento de nuestras obligaciones fiscales y legales frente a las autoridades venezolanas.</p>
+<h2>9. Transferencias Internacionales de Datos</h2>
+<p>Nuestra infraestructura opera en servidores en la nube de proveedores globales de primer nivel. Por lo tanto, la información recopilada puede ser transferida y mantenida en servidores ubicados fuera de su estado, provincia o país de jurisdicción, donde las leyes de protección de datos pueden diferir. Al aceptar esta política, el Cliente consiente expresamente la transferencia y procesamiento internacional de estos datos bajo acuerdos de estricta seguridad (Cláusulas Contractuales Tipo).</p>
+<h2>10. Divulgación por Requerimientos Legales</h2>
+<p>Qxao se reserva el derecho de acceder, preservar y divulgar cualquier información corporativa o de usuarios finales si creemos de buena fe que es razonablemente necesario para:</p>
+<p>Cumplir con una ley aplicable, regulación, proceso legal o solicitud gubernamental y judicial válida en la República Bolivariana de Venezuela o en el extranjero.</p>
+<p>Hacer cumplir nuestros Términos y Condiciones, incluyendo la investigación de posibles violaciones a los mismos.</p>
+<p>Detectar, prevenir o abordar fraudes, spam, problemas de seguridad o técnicos.</p>
+<nav class="docs" aria-label="Otros documentos legales">
+  <strong>Otros documentos:</strong><br>
+  <a href="/legal/terminos/">Términos y Condiciones de Servicio</a> <a href="/legal/cookies/">Política de Cookies</a> <a href="/legal/dpa/">Acuerdo de Procesamiento de Datos (DPA)</a> <a href="/legal/sobre-nosotros/">Quiénes Somos</a>
+</nav>
+</main>
+</body>
+</html>
